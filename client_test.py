@@ -19,6 +19,15 @@ class ClientTest(unittest.TestCase):
 
   """ ------------ Add more unit tests ------------ """
 
+def test_getDataPoint_calculatePrice(self):
+    self.assertEqual(getDataPoint(self.quotes[0]), ('ABC', 120.48, 121.2, (120.48 + 121.2) / 2))
+
+def test_getDataPoint_calculatePriceBidGreaterThanAsk(self):
+    self.assertEqual(getDataPoint(self.quotes[0]), ('ABC', 120.48, 119.2, (120.48 + 119.2) / 2))
+  
+def test_getRatio(self):
+    self.assertEqual(getRatio(10, 2), 5)
+    self.assertIsNone(getRatio(10, 0), "Should handle division by zero")
 
 
 if __name__ == '__main__':
